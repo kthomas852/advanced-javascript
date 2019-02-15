@@ -110,7 +110,9 @@ function getMax(arr) {
 // What's wrong with this code?
 function exercise1() {
   const arr = [{ name: 'Tiffany' }, { name: 'Panil' }]
-  const indexOfTiffany = arr.indexOf({ name: 'Tiffany' })
-  // console.log('indexOfTiffany', indexOfTiffany)
+  //const indexOfTiffany = arr.indexOf({ name: 'Tiffany'})
+  //Answer
+  const indexOfTiffany = arr.findIndex(person => 'Tiffany')
+  console.log('indexOfTiffany', indexOfTiffany)
 }
 exercise1()
