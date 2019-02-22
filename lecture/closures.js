@@ -21,6 +21,7 @@ function f() {
 
   var b = 8
 }
+f();
 
 // What is b?
 // console.log('b', b)
@@ -76,15 +77,16 @@ function container10() {
     }
     return y
   }
-  
+
   const q = x()
   // What data type is q? How could you know, based on the line below?
   const n = q()
   // console.log('n', n)
+  return n
 }
 container10()
 // Where does the function y execute?
-
+// console.log(container10())
 
 
 
@@ -112,7 +114,7 @@ function container20() {
   q()
   q()
 }
-container20()
+// console.log(container20())
 
 
 
@@ -156,12 +158,13 @@ function container30() {
   const q = x()
   q()
   q()
+  // console.log('next: ')
   const q2 = x()
   q2()
   q()
   q()
 }
-container30()
+// container30()
 
 
 
@@ -188,11 +191,11 @@ function container11() {
   }
   
   const q = x()
-  const n = q()
-  // console.log('n', n)
+  const n = q(-5)
+  console.log('n', n)
 }
-container11()
 
+// container11()
 
 
 
@@ -221,10 +224,11 @@ const msg = 'hi'
 // Challenge 2: Make i print properly (1-5, not all 6). Do not use `let` or `const` anywhere.
 function container40() {
   for (var i = 1; i <= 5; i++) {
-    // setTimeout(() => console.log(`timeout for i = ${i}`), i * 1000)
+    let x = i;
+    setTimeout(() => console.log(`timeout for i = ${x}`), i * 1000)
   }
 }
-container40()
+// container40()
 
 
 
@@ -333,7 +337,30 @@ container50();
 // Challenge: do it for yourself here. Create a school class and use it as mentioned above, using addStudent and deleteStudent. Then change the class from storing students as an array to storing them as an object. Watch your code break. There's no better way to learn than to experience the "pain"; it's memorable.
 
 
+class School {
+  constructor(list){
+  // this.students = list;
+  this.students = {}
+  this.deleteStudent = (id) => {
+    delete this.students[id]
+  }
+  this.addStudent = (id, name) => {
+    // this.students.push({studentId: id, name: name})
+    this.students[id] = name
+  }
+  this.getStudents = () => {
+    return this.students;
+  }
+  }
+}
+// let arrayofstudents = [{studentId: 2, name: 'kyle'}, {studentId: 3, name: 'trent'}]
 
+let school1 = new School()//arrayofstudents)
+// school1.deleteStudent(2)
+school1.addStudent(5, 'Adam')
+school1.addStudent(2, 'Kyle')
+school1.addStudent(3, 'trent')
+console.log(school1.getStudents())
 
 
 

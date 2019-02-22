@@ -1,14 +1,24 @@
 import React, { Component } from 'react'
 import Toggle from './Toggle'
+// import axios from 'axios'
 
 export class Closures extends Component {
   constructor() {
     super()
     this.state = {
-      toggleValue: false
+      toggleValue: false,
+      data: null
     }
     this.handleClick = this.handleClick.bind(this)
   }
+
+  // componentDidMount(){
+  //   axios.get('url').then(res => {
+  //     this.setState({
+  //       data: res
+  //     })
+  //   })
+  // }
   
   handleClick() {
     this.setState({ toggleValue: !this.state.toggleValue })

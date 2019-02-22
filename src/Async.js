@@ -12,10 +12,11 @@ export class Async extends Component {
   handleClick() {
     this.setState({
       count: this.state.count + 1
-    })
+    }, 
+    () => console.log('this.state.count', this.state.count)
     // The state.count always seems to be 1 less than what we set it to above. Why?
-    console.log('this.state.count', this.state.count)
-  }
+    //moved console.log into the callbcak of setState
+    )}
   
   render() {
     const { count } = this.state
