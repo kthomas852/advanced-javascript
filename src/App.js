@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './App.scss'
+import Context from './context'
 import { Route } from 'react-router-dom'
 import Header from './Header'
 import References from './References'
@@ -11,6 +12,7 @@ class App extends Component {
     return (
       <div className="app">
         <Header />
+        <Route path="/context" component={Context} />
         <Route path="/" exact render={() => (
           <div>
             <div>Click a nav link</div>
@@ -25,3 +27,5 @@ class App extends Component {
 }
 
 export default App;
+
+
