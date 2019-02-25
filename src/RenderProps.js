@@ -24,8 +24,8 @@ export class RenderProps extends Component {
         <div>Write a stateless component named RenderProp2b. Make it work with the following line (see code; un-comment it).</div>
         {/* <RenderProp2b render={value => {
           return <div>The value passed to the render prop is {value}</div>
-        }} */}
-        
+        }}
+        /> */}
         <h3>Did you know?</h3>
         <div>React Router allows for a <code>render</code> prop instead of a <code>component</code> prop. It's true. Go check <code>App.js</code> where it renders RenderProp.</div>
         
@@ -37,7 +37,7 @@ export class RenderProps extends Component {
 
         <h3>Challenge 3</h3>
         <div>Write a component named RenderProp3Challenge that accepts renderA and renderB props. Render the concatenation of their return values.</div>
-        
+        <RenderProp3Challenge renderA={() => <div>This is </div>} renderB={()=><div>Working</div>}/>
         <h3>Did you know?</h3>
         <div>Anything you put in the tag body automatically gets passed as the <code>children</code> prop. This has nothing to do specifically with render props, but it's important to know about <code>children</code>.</div>
         <h3>Example: RenderProp4</h3>
@@ -48,9 +48,9 @@ export class RenderProps extends Component {
 
         <h3>Challenge 4</h3>
         <div>Write a component named RenderProp4Challenge that uses the <code>children</code> prop as a render prop, and use that component here.</div>
-        
+        <RenderProp4Challenge renderA={()=> <div>This is element 0 of the children prop</div>} renderB={()=><div>This is element 1 of the children prop</div>}/>
         <h3>Challenge 5</h3>
-        <div>Write a component named RenderProp5Challenge that passes arguments of 7 and 'hello' to its render prop. Use that component here. Display the params however you want.</div>
+        <div>Write a component named RenderProp5Challenge that passes arguments of 7 and 'hello' to its render prop. Use that component here <RenderProp5Challenge />. Display the params however you want.</div>
 
         <h3>Lesson</h3>
         <div>Components that take render props can have state like any other component.</div>
@@ -81,9 +81,27 @@ class RenderProp1 extends Component {
   }
 }
 
+class RenderProp2 extends Comment {
+  render() {
+    return this.props.render()
+  }
+}
+
+class RenderProp2b extends Comment {
+  render(){
+    return this.props.render("what")
+  }
+}
+
 class RenderProp3 extends Component {
   render() {
     return this.props.getOutput()
+  }
+}
+
+class RenderProp3Challenge extends Component {
+  render() {
+    return <div>{this.props.renderA()}{this.props.renderB()}</div>
   }
 }
 
@@ -92,3 +110,15 @@ class RenderProp4 extends Component {
     return this.props.children
   }
 }
+
+ class RenderProp4Challenge extends Component {
+   render(){
+     return <div>{this.props.renderA()}{this.props.renderB()}</div>
+   }
+ }
+
+ class RenderProp5Challenge extends Component {
+   render(){
+     return
+   }
+ }

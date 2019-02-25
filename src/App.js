@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './App.scss'
-import Context from './context'
 import { Route } from 'react-router-dom'
 import Header from './Header'
 import References from './References'
